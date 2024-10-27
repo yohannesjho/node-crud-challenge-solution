@@ -141,16 +141,18 @@ describe("Test Person CRUD API", function () {
 
         assert.deepEqual(persons.filter(p => p.id == '1'), [])
     });
-
+    
     it("Test non existing user", async function () {
         let err;
         try {
             let res = await axios.get('http://localhost:3000/person/1')
+            console.log(res.status)
+           
         } catch (e) {
             err = e;
         }
         assert.equal(err.response.status, 404)
-
+        console.log(e)
     });
 
     it("Test non existing endpoint", async function () {
